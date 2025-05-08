@@ -52,7 +52,8 @@ class UserAuthController extends Controller
             $token = $user->createToken($user->name.'-AuthToken')->plainTextToken;
             return $this->sendResponse([
                 'token' => $token,
-                'token_type' => 'bearer'
+                'token_type' => 'bearer',
+                'user' => $user
             ], 'User login successful');
         }
 

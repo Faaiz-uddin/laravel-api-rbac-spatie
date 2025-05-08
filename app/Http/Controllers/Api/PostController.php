@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Validator;
 class PostController extends Controller
 {
     use ApiResponseTrait;
+    public function __construct()
+    {
+        $this->authorizeResource(Post::class, 'post');
+    }
     public function index()
     {
         $data['post']=post::all();
