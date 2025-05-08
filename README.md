@@ -59,11 +59,28 @@ composer install
 cp .env.example .env
 php artisan key:generate
 
+# Update your .env database settings
+DB_DATABASE=your_db
+DB_USERNAME=root
+DB_PASSWORD=
+
 # Configure database in .env, then run:
 php artisan migrate --seed
 
 # Install Sanctum
 php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
 
+# Spatie Permission Setup
+composer require spatie/laravel-permission
+php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+php artisan migrate
+
 # Serve the app
 php artisan serve
+
+
+## 📩 Postman Collection
+
+Import this into Postman to test all endpoints easily:
+
+➡️ [Download Collection](./laravel-rbac-api.postman_collection.json)
